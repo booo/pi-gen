@@ -1,0 +1,4 @@
+language: c
+install:
+  - xargs sudo apt-get install < depends
+  - ./build.sh -c config
