@@ -1,3 +1,4 @@
 # image name
 IMG_NAME=searchwing
 ENABLE_SSH=1
+FIRST_USER_NAME=searchwing
