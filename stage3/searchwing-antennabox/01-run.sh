@@ -7,7 +7,7 @@ install -v -o 1000 -g 1000 -m 644 "rootfs/etc/dnsmasq.conf" "${ROOTFS_DIR}/etc/"
 install -v -o 1000 -g 1000 -m 644 "rootfs/etc/hostapd/hostapd.conf"  "${ROOTFS_DIR}/etc/hostapd/"
 
 install -v -o 1000 -g 1000 -m 644 -d "${ROOTFS_DIR}/etc/mavlink-router"
-install -v -o 1000 -g 1000 -m 644 "rootfs/etc/mavlink-router.conf"  "${ROOTFS_DIR}/etc/mavlink-router/"
+install -v -o 1000 -g 1000 -m 644 "rootfs/etc/main.conf"  "${ROOTFS_DIR}/etc/mavlink-router/"
 
 install -v -o 1000 -g 1000 -m 644 "rootfs/etc/systemd/network/br0-member-eth0.network"  "${ROOTFS_DIR}/etc/systemd/network"
 install -v -o 1000 -g 1000 -m 644 "rootfs/etc/systemd/network/bridge-br0.netdev"  "${ROOTFS_DIR}/etc/systemd/network"
