@@ -26,6 +26,7 @@ on_chroot << EOF
   sudo systemctl unmask hostapd
   sudo systemctl enable hostapd
   sudo systemctl enable dnsmasq
+  sudo rfkill unblock wlan
 EOF
 
 on_chroot << EOF
