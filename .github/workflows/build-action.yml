@@ -15,4 +15,4 @@ jobs:
         with:
             name: images
             path: |
-              deploy
+              deploy/image*
