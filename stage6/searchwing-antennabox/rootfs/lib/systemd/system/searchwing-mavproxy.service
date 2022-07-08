@@ -1,0 +1,14 @@
+[Unit]
+Description=SearchWing service for mavproxy
+
+After=network.target
+
+[Service]
+Type=simple
+User=searchwing
+#ExecStart=/home/searchwing/env/bin/python /home/searchwing/env/bin/mavproxy.py --master=/dev/ttyUSB0 --out=udpbcast:192.168.1.255:14550 --daemon --rtscts
+ExecStart=/home/searchwing/env/bin/python /home/searchwing/env/bin/mavproxy.py --master=udp:127.0.0.1:14550 --daemon --load-module=movinghome --cmd="movinghome device /dev/ttyGPS; movinghome baud 230400; movinghome on"
+WorkingDirectory=/home/searchwing
+
+[Install]
+WantedBy=multi-user.target
