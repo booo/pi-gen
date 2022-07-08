@@ -27,3 +27,7 @@ on_chroot << EOF
   sudo systemctl enable hostapd
   sudo systemctl enable dnsmasq
 EOF
+
+on_chroot << EOF
+  pip install mavproxy
+EOF
