@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 
 install -v -o 1000 -g 1000 -m 644 "rootfs/etc/dhcpcd.conf" "${ROOTFS_DIR}/etc/"
 
