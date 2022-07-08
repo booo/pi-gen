@@ -1,3 +1,10 @@
 hostapd
 dnsmasq
 python3-pip
+git
+meson
+ninja-build
+pkg-config
+gcc
+g++
+systemd

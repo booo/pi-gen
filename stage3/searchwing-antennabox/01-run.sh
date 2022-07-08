@@ -32,3 +32,14 @@ EOF
 on_chroot << EOF
   pip install mavproxy
 EOF
+
+on_chroot << EOF
+  cd
+  git clone https://github.com/mavlink-router/mavlink-router
+  cd mavlink-router
+  git submodule update --init --recursive
+  meson setup build .
+  ninja -C build
+  sudo ninja -C build install
+EOF
+
