@@ -31,6 +31,7 @@ EOF
 
 on_chroot << EOF
   pip install mavproxy
+  pip install pynmea2
 EOF
 
 on_chroot << EOF
