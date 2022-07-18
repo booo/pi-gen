@@ -16,6 +16,7 @@ install -v -o 1000 -g 1000 -m 644 "rootfs/lib/systemd/system/mavlink-router.serv
 install -v -o 1000 -g 1000 -m 644 "rootfs/lib/systemd/system/searchwing-mavproxy.service"  "${ROOTFS_DIR}/lib/systemd/system/"
 
 install -v -o 1000 -g 1000 -m 644 "rootfs/etc/udev/rules.d/10-usb-serial.rules"  "${ROOTFS_DIR}/etc/udev/rules.d/"
+install -v -o 1000 -g 1000 -m 755 "rootfs/etc/rc.local" "${ROOTFS_DIR}/etc/"
 
 echo "dtoverlay=dwc2,dr_mode=host" >> "${ROOTFS_DIR}/boot/config.txt"
 
@@ -26,7 +27,6 @@ on_chroot << EOF
   sudo systemctl unmask hostapd
   sudo systemctl enable hostapd
   sudo systemctl enable dnsmasq
-  sudo rfkill unblock wlan
 EOF
 
 on_chroot << EOF

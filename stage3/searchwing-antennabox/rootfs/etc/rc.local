@@ -1,0 +1,4 @@
+#!/bin/sh -e
+
+# unblock wlan on every boot just in case
+rfkill unblock wlan
