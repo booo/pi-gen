@@ -8,3 +8,7 @@ pkg-config
 gcc
 g++
 systemd
+tmux
+mtr
+tcpdump
+minicom
