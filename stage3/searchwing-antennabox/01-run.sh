@@ -19,6 +19,8 @@ install -v -o 1000 -g 1000 -m 644 "rootfs/etc/udev/rules.d/10-usb-serial.rules" 
 install -v -o 1000 -g 1000 -m 755 "rootfs/etc/rc.local" "${ROOTFS_DIR}/etc/"
 
 echo "dtoverlay=dwc2,dr_mode=host" >> "${ROOTFS_DIR}/boot/config.txt"
+# enable external antenna
+echo "dtparam=ant2" >> "${ROOTFS_DIR}/boot/config.txt"
 
 on_chroot << EOF
   sudo systemctl enable mavlink-router.service
