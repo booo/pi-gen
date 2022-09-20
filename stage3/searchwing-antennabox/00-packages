@@ -12,3 +12,6 @@ tmux
 mtr
 tcpdump
 minicom
+gpsd
+gpsd-clients
+gpsd-tools
