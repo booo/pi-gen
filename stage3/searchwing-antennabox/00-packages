@@ -1,6 +1,7 @@
 hostapd
 dnsmasq
 python3-pip
+python3-nmea2
 git
 meson
 ninja-build

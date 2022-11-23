@@ -37,7 +37,6 @@ EOF
 
 on_chroot << EOF
   pip install git+https://github.com/booo/mavproxy@accept-position-from-other-constellations
-  pip install pynmea2
 EOF
 
 on_chroot << EOF
