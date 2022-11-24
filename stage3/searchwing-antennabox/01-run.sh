@@ -37,6 +37,8 @@ on_chroot << EOF
   sudo systemctl unmask hostapd
   sudo systemctl enable hostapd
   sudo systemctl enable dnsmasq
+
+  ln -sf /usr/share/zoneinfo/UTC /etc/localtime
 EOF
 
 on_chroot << EOF
