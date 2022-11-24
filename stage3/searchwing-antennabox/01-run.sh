@@ -37,6 +37,7 @@ on_chroot << EOF
   sudo systemctl unmask hostapd
   sudo systemctl enable hostapd
   sudo systemctl enable dnsmasq
+  timedatectl set-timezone UTC
 EOF
 
 on_chroot << EOF
