@@ -20,6 +20,8 @@ install -v -o 1000 -g 1000 -m 755 "rootfs/etc/rc.local" "${ROOTFS_DIR}/etc/"
 
 install -v -o 1000 -g 1000 -m 644 "rootfs/etc/ntpsec/ntp.conf" "${ROOTFS_DIR}/etc/ntpsec/"
 
+install -v -o 1000 -g 1000 -m 644 "rootfs/etc/default/gpsd" "${ROOTFS_DIR}/etc/default/"
+
 echo "dtoverlay=dwc2,dr_mode=host" >> "${ROOTFS_DIR}/boot/config.txt"
 # enable external antenna
 echo "dtparam=ant2" >> "${ROOTFS_DIR}/boot/config.txt"
