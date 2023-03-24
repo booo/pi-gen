@@ -7,4 +7,4 @@ DEVICES="/dev/ttyGPS"
 GPSD_OPTIONS="-n"
 
 # Automatically hot add/remove USB GPS devices via gpsdctl
-USBAUTO="true"
+#USBAUTO="true"
