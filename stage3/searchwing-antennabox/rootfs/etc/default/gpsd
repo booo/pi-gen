@@ -4,7 +4,8 @@ DEVICES="/dev/ttyGPS"
 
 # Other options you want to pass to gpsd
 # -n, --nowait              = don't wait for client connects to poll GPS
-GPSD_OPTIONS="-n"
+# -p, --passive             = do not reconfigure the receiver automatically
+GPSD_OPTIONS="-n -p"
 
 # Automatically hot add/remove USB GPS devices via gpsdctl
 #USBAUTO="true"
