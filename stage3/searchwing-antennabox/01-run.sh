@@ -22,6 +22,8 @@ install -v -o 1000 -g 1000 -m 644 "rootfs/etc/ntpsec/ntp.conf" "${ROOTFS_DIR}/et
 
 install -v -o 1000 -g 1000 -m 644 "rootfs/etc/default/gpsd" "${ROOTFS_DIR}/etc/default/"
 
+install -v -m 644 "rootfs/etc/systemd/journald.conf" "${ROOTFS_DIR}/etc/systemd/journald.conf"
+
 on_chroot << EOF
   sudo systemctl enable mavlink-router.service
   sudo systemctl enable searchwing-mavproxy.service
