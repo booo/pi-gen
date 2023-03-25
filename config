@@ -3,3 +3,4 @@ IMG_NAME=searchwing
 ENABLE_SSH=1
 FIRST_USER_NAME=searchwing
 FIRST_USER_PASS=foobar
+TARGET_HOSTNAME=searchwing-gcs-antennabox
