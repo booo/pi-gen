@@ -26,7 +26,6 @@ on_chroot << EOF
   sudo systemctl enable mavlink-router.service
   sudo systemctl enable searchwing-mavproxy.service
   sudo systemctl enable systemd-networkd
-  sudo systemctl enable dnsmasq
 
   ln -sf /usr/share/zoneinfo/UTC /etc/localtime
 EOF
