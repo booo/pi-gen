@@ -6,8 +6,7 @@ After=network.target
 [Service]
 Type=simple
 User=searchwing
-#ExecStart=/home/searchwing/env/bin/python /home/searchwing/env/bin/mavproxy.py --master=/dev/ttyUSB0 --out=udpbcast:192.168.1.255:14550 --daemon --rtscts
-ExecStart=/usr/local/bin/mavproxy.py --master=udp:127.0.0.1:14550 --daemon --load-module=movinghome --cmd="movinghome device /dev/ttyAMA0; movinghome baud 9600; movinghome on"
+ExecStart=/usr/local/bin/mavproxy.py --master=udp:127.0.0.1:14551 --streamrate=-1 --daemon --load-module="movinghome,gpsd" --cmd="movinghome on; gpsd connect" --moddebug 1
 WorkingDirectory=/home/searchwing
 
 [Install]
