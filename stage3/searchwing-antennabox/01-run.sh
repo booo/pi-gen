@@ -33,7 +33,7 @@ on_chroot << EOF
 EOF
 
 on_chroot << EOF
-  pip install git+https://github.com/booo/mavproxy@movinghome-nmeagpsmodule
+  pip install git+https://github.com/booo/mavproxy@movinghome-gpsd-searchwing
 EOF
 
 on_chroot << EOF
