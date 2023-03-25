@@ -34,6 +34,7 @@ EOF
 
 on_chroot << EOF
   pip install git+https://github.com/booo/mavproxy@movinghome-gpsd-searchwing
+  pip install gpsdclient
 EOF
 
 on_chroot << EOF
