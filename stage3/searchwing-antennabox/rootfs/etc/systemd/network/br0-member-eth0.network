@@ -1,4 +1,4 @@
 [Match]
 Name=eth0
 [Network]
-Bridge=br0
+#Bridge=br0
