@@ -22,14 +22,6 @@ install -v -o 1000 -g 1000 -m 644 "rootfs/etc/ntpsec/ntp.conf" "${ROOTFS_DIR}/et
 
 install -v -o 1000 -g 1000 -m 644 "rootfs/etc/default/gpsd" "${ROOTFS_DIR}/etc/default/"
 
-echo "dtoverlay=dwc2,dr_mode=host" >> "${ROOTFS_DIR}/boot/config.txt"
-# enable external antenna
-echo "dtparam=ant2" >> "${ROOTFS_DIR}/boot/config.txt"
-
-# enable uarts for use with RFD and GPS
-echo "dtoverlay=uart0" >> "${ROOTFS_DIR}/boot/config.txt"
-echo "dtoverlay=uart2" >> "${ROOTFS_DIR}/boot/config.txt"
-
 on_chroot << EOF
   sudo systemctl enable mavlink-router.service
   sudo systemctl enable searchwing-mavproxy.service
