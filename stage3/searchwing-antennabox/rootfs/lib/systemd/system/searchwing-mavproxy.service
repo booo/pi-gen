@@ -6,7 +6,7 @@ After=network.target
 [Service]
 Type=simple
 User=searchwing
-ExecStart=/usr/local/bin/mavproxy.py --master=udp:127.0.0.1:14551 --streamrate=-1 --daemon --load-module="movinghome,gpsd" --cmd="movinghome on; gpsd connect" --moddebug 1
+ExecStart=/usr/local/bin/mavproxy.py --master=tcp:127.0.0.1:5760 --streamrate=-1 --daemon --load-module="movinghome,gpsd" --cmd="movinghome on; gpsd connect" --moddebug 1
 WorkingDirectory=/home/searchwing
 
 [Install]
