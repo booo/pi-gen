@@ -8,6 +8,9 @@ Type=simple
 User=searchwing
 ExecStart=/usr/local/bin/mavproxy.py --master=tcp:127.0.0.1:5760 --streamrate=-1 --daemon --load-module="movinghome,gpsd" --cmd="movinghome on; gpsd connect" --moddebug 1
 WorkingDirectory=/home/searchwing
+Restart=always
+RestartSec=1
+StartLimitInterval=0
 
 [Install]
 WantedBy=multi-user.target
