@@ -1,5 +1,15 @@
 #!/bin/bash -e
 
+on_chroot << EOF
+  cd
+  git clone https://github.com/mavlink-router/mavlink-router
+  cd mavlink-router
+  git submodule update --init --recursive
+  meson setup build .
+  ninja -C build
+  sudo ninja -C build install
+EOF
+
 install -v -o 1000 -g 1000 -m 644 "rootfs/etc/dhcpcd.conf" "${ROOTFS_DIR}/etc/"
 
 install -v -o 1000 -g 1000 -m 644 "rootfs/etc/dnsmasq.conf" "${ROOTFS_DIR}/etc/"
@@ -36,14 +46,3 @@ on_chroot << EOF
   pip install git+https://github.com/booo/mavproxy@movinghome-gpsd-searchwing
   pip install gpsdclient
 EOF
-
-on_chroot << EOF
-  cd
-  git clone https://github.com/mavlink-router/mavlink-router
-  cd mavlink-router
-  git submodule update --init --recursive
-  meson setup build .
-  ninja -C build
-  sudo ninja -C build install
-EOF
-
