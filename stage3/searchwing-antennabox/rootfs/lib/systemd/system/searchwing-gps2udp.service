@@ -1,0 +1,16 @@
+[Unit]
+Description=SearchWing service for NMEA streaming with gps2udp
+
+After=network.target
+
+[Service]
+Type=simple
+User=searchwing
+ExecStart=/usr/bin/gps2udp --nmea -u 192.168.8.3:54321
+WorkingDirectory=/home/searchwing
+Restart=always
+RestartSec=1
+StartLimitInterval=0
+
+[Install]
+WantedBy=multi-user.target

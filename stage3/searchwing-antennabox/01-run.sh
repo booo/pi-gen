@@ -24,6 +24,7 @@ install -v -o 1000 -g 1000 -m 644 "rootfs/etc/systemd/network/bridge-br0.netdev"
 
 install -v -o 1000 -g 1000 -m 644 "rootfs/lib/systemd/system/mavlink-router.service"  "${ROOTFS_DIR}/lib/systemd/system/"
 install -v -o 1000 -g 1000 -m 644 "rootfs/lib/systemd/system/searchwing-mavproxy.service"  "${ROOTFS_DIR}/lib/systemd/system/"
+install -v -o 1000 -g 1000 -m 644 "rootfs/lib/systemd/system/searchwing-gps2udp.service"  "${ROOTFS_DIR}/lib/systemd/system/"
 
 install -v -o 1000 -g 1000 -m 644 "rootfs/etc/udev/rules.d/10-usb-serial.rules"  "${ROOTFS_DIR}/etc/udev/rules.d/"
 install -v -o 1000 -g 1000 -m 755 "rootfs/etc/rc.local" "${ROOTFS_DIR}/etc/"
@@ -37,6 +38,7 @@ install -v -m 644 "rootfs/etc/systemd/journald.conf" "${ROOTFS_DIR}/etc/systemd/
 on_chroot << EOF
   sudo systemctl enable mavlink-router.service
   sudo systemctl enable searchwing-mavproxy.service
+  sudo systemctl enable searchwing-gps2udp.service
   sudo systemctl enable systemd-networkd
 
   ln -sf /usr/share/zoneinfo/UTC /etc/localtime
