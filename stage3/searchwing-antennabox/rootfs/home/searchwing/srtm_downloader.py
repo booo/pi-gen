@@ -4,7 +4,7 @@ from tqdm import tqdm
 import argparse
 from pathlib import Path
 
-from MAVProxy.modules.mavproxy_movinghome import ElevationModel
+from MAVProxy.modules.mavproxy_map.mp_elevation import ElevationModel
 
 parser = argparse.ArgumentParser(description="Process all images for tracking")
 parser.add_argument(
