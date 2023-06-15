@@ -50,8 +50,8 @@ on_chroot << EOF
   pip install gpsdclient
 EOF
 
-install -m 644 -o ${FIRST_USER_NAME} -g ${FIRST_USER_NAME} "rootfs/home/searchwing/eberswalde.geojson" "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/"
-install -m 644 -o ${FIRST_USER_NAME} -g ${FIRST_USER_NAME} "rootfs/home/searchwing/srtm_downloader.py" "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/"
+install -m 644 -o 1000 -g 1000  "rootfs/home/searchwing/eberswalde.geojson" "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/"
+install -m 644 -o 1000 -g 1000  "rootfs/home/searchwing/srtm_downloader.py" "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/"
 on_chroot << EOF
   python srtm_downloader.py /home/searchwing/eberswalde.geojson
 EOF
