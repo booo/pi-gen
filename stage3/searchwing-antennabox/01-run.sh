@@ -54,5 +54,5 @@ install -m 644 -o 1000 -g 1000  "rootfs/home/searchwing/eberswalde.geojson" "${R
 install -m 644 -o 1000 -g 1000  "rootfs/home/searchwing/srtm_downloader.py" "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/"
 on_chroot << EOF
   pip install tqdm
-  python srtm_downloader.py /home/searchwing/eberswalde.geojson
+  python /home/searchwing/srtm_downloader.py /home/searchwing/eberswalde.geojson
 EOF
