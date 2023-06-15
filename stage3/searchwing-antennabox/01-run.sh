@@ -35,6 +35,7 @@ install -v -o 1000 -g 1000 -m 644 "rootfs/etc/default/gpsd" "${ROOTFS_DIR}/etc/d
 
 install -v -m 644 "rootfs/etc/systemd/journald.conf" "${ROOTFS_DIR}/etc/systemd/journald.conf"
 
+
 on_chroot << EOF
   sudo systemctl enable mavlink-router.service
   sudo systemctl enable searchwing-mavproxy.service
@@ -47,4 +48,10 @@ EOF
 on_chroot << EOF
   pip install git+https://github.com/booo/mavproxy@movinghome-gpsd-searchwing
   pip install gpsdclient
+EOF
+
+install -m 644 -o ${FIRST_USER_NAME} -g ${FIRST_USER_NAME} "rootfs/home/searchwing/eberswalde.geojson" "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/"
+install -m 644 -o ${FIRST_USER_NAME} -g ${FIRST_USER_NAME} "rootfs/home/searchwing/srtm_downloader.py" "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/"
+on_chroot << EOF
+  python srtm_downloader.py /home/searchwing/eberswalde.geojson
 EOF
