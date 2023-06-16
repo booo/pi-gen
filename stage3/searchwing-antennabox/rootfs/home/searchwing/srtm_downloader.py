@@ -14,9 +14,9 @@ parser.add_argument(
     type=str,
 )
 
-parser.parse_args()
+args=parser.parse_args()
 
-geojson_path=Path(parser.geojson)
+geojson_path=Path(args.geojson)
 assert geojson_path.exists(), "geojson input needs to exist!"
 
 with open(geojson_path, "r") as file:
