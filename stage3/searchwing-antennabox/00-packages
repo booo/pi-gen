@@ -18,3 +18,13 @@ gpsd-clients
 gpsd-tools
 ntpsec
 vim
+librtlsdr-dev
+librtlsdr0
+libncurses5-dev
+nginx
+debhelper
+libusb-1.0-0-dev
+zlib1g-dev
+zlib1g
+libzstd-dev
+libzstd1

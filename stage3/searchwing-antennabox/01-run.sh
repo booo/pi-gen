@@ -25,6 +25,7 @@ install -v -o 1000 -g 1000 -m 644 "rootfs/etc/systemd/network/bridge-br0.netdev"
 install -v -o 1000 -g 1000 -m 644 "rootfs/lib/systemd/system/mavlink-router.service"  "${ROOTFS_DIR}/lib/systemd/system/"
 install -v -o 1000 -g 1000 -m 644 "rootfs/lib/systemd/system/searchwing-mavproxy.service"  "${ROOTFS_DIR}/lib/systemd/system/"
 install -v -o 1000 -g 1000 -m 644 "rootfs/lib/systemd/system/searchwing-gps2udp.service"  "${ROOTFS_DIR}/lib/systemd/system/"
+install -v -o 1000 -g 1000 -m 644 "rootfs/lib/systemd/system/searchwing-adsb.service"  "${ROOTFS_DIR}/lib/systemd/system/"
 
 install -v -o 1000 -g 1000 -m 644 "rootfs/etc/udev/rules.d/10-usb-serial.rules"  "${ROOTFS_DIR}/etc/udev/rules.d/"
 install -v -o 1000 -g 1000 -m 755 "rootfs/etc/rc.local" "${ROOTFS_DIR}/etc/"
@@ -35,6 +36,13 @@ install -v -o 1000 -g 1000 -m 644 "rootfs/etc/default/gpsd" "${ROOTFS_DIR}/etc/d
 
 install -v -m 644 "rootfs/etc/systemd/journald.conf" "${ROOTFS_DIR}/etc/systemd/journald.conf"
 
+install -v -m 644 "rootfs/etc/modprobe.d/no-rtl.conf" "${ROOTFS_DIR}/etc/modprobe.d/"
+
+install -v -d "${ROOTFS_DIR}/srv/http/adsb"
+
+install -v -m 644 "rootfs/etc/nginx/sites-enabled/searchwing-adsb" "${ROOTFS_DIR}/etc/nginx/sites-enabled/"
+
+
 on_chroot << EOF
   sudo systemctl enable mavlink-router.service
   sudo systemctl enable searchwing-mavproxy.service
@@ -42,9 +50,27 @@ on_chroot << EOF
   sudo systemctl enable systemd-networkd
 
   ln -sf /usr/share/zoneinfo/UTC /etc/localtime
+
+  rm /etc/nginx/sites-enabled/default
 EOF
 
 on_chroot << EOF
   pip install git+https://github.com/booo/mavproxy@movinghome-gpsd-searchwing
   pip install gpsdclient
 EOF
+
+on_chroot << EOF
+  cd
+  git clone --depth 20 https://github.com/wiedehopf/readsb.git
+  cd readsb
+  export DEB_BUILD_OPTIONS=noddebs
+  dpkg-buildpackage -b -Prtlsdr -ui -uc -us
+  sudo dpkg -i ../readsb_*.deb
+  cd
+  git clone https://github.com/wiedehopf/tar1090
+  cp -r tar1090/html/* /srv/http/adsb/
+  sudo ln -s /run/readsb /srv/http/adsb/data
+EOF
+
+install -v -m 644 "rootfs/etc/default/readsb" "${ROOTFS_DIR}/etc/default/"
+install -v -m 644 "rootfs/srv/http/adsb/config.js" "${ROOTFS_DIR}/srv/http/adsb/config.js"
