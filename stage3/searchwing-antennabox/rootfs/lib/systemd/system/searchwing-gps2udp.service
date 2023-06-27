@@ -4,9 +4,10 @@ Description=SearchWing service for NMEA streaming with gps2udp
 After=network.target
 
 [Service]
+EnvironmentFile=/etc/default/searchwing-gps2udp
 Type=simple
 User=searchwing
-ExecStart=/usr/bin/gps2udp --nmea -u 192.168.8.3:54321
+ExecStart=/usr/bin/gps2udp --nmea $NMEA_CLIENTS
 WorkingDirectory=/home/searchwing
 Restart=always
 RestartSec=1

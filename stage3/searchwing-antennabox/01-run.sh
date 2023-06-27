@@ -34,6 +34,8 @@ install -v -o 1000 -g 1000 -m 644 "rootfs/etc/ntpsec/ntp.conf" "${ROOTFS_DIR}/et
 
 install -v -o 1000 -g 1000 -m 644 "rootfs/etc/default/gpsd" "${ROOTFS_DIR}/etc/default/"
 
+install -v -o 1000 -g 1000 -m 644 "rootfs/etc/default/searchwing-gps2udp" "${ROOTFS_DIR}/etc/default/"
+
 install -v -m 644 "rootfs/etc/systemd/journald.conf" "${ROOTFS_DIR}/etc/systemd/journald.conf"
 
 install -v -m 644 "rootfs/etc/modprobe.d/no-rtl.conf" "${ROOTFS_DIR}/etc/modprobe.d/"
