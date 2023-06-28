@@ -12,9 +12,11 @@ jobs:
         run: sudo apt-get install coreutils quilt parted qemu-user-static debootstrap zerofree zip dosfstools libarchive-tools libcap2-bin grep rsync xz-utils file git curl bc qemu-utils kpartx gpg pigz
       - name: build
         run: sudo ./build.sh -c config
+      - name: Get current date
+        run: echo "date=$(date +'%Y-%m-%d')" >> "$GITHUB_ENV"
       - name: Upload Pi image
         uses: actions/upload-artifact@v3
         with:
-            name: images
+            name: searchwing-gcs-antennabox-images-${{ env.date }}-${{ github.ref_name }}
             path: |
               deploy/image*
