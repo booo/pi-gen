@@ -46,7 +46,7 @@ on_chroot << EOF
 EOF
 
 on_chroot << EOF
-  pip install git+https://github.com/booo/mavproxy@movinghome-gpsd-searchwing
+  pip install git+https://github.com/booo/mavproxy@feature/SRTM-altitude
   pip install gpsdclient
 EOF
 
