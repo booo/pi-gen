@@ -76,3 +76,15 @@ EOF
 
 install -v -m 644 "rootfs/etc/default/readsb" "${ROOTFS_DIR}/etc/default/"
 install -v -m 644 "rootfs/srv/http/adsb/config.js" "${ROOTFS_DIR}/srv/http/adsb/config.js"
+
+install -m 644 -o 1000 -g 1000  "rootfs/home/searchwing/eberswalde.geojson" "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/"
+install -m 644 -o 1000 -g 1000  "rootfs/home/searchwing/augsburg.geojson" "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/"
+install -m 644 -o 1000 -g 1000  "rootfs/home/searchwing/burriana.geojson" "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/"
+
+install -m 644 -o 1000 -g 1000  "rootfs/home/searchwing/srtm_downloader.py" "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/"
+on_chroot << EOF
+  pip install tqdm
+  su -c 'python /home/searchwing/srtm_downloader.py -g /home/searchwing/eberswalde.geojson' searchwing # as user
+  su -c 'python /home/searchwing/srtm_downloader.py -g /home/searchwing/augsburg.geojson' searchwing # as user
+  su -c 'python /home/searchwing/srtm_downloader.py -g /home/searchwing/burriana.geojson' searchwing # as user
+EOF
