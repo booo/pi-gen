@@ -90,5 +90,5 @@ on_chroot << EOF
 EOF
 
 on_chroot << EOF
-  ansible-pull -U git@gitlab.com:searchwing/development/groundstation/antennagroundstation/ansible.git -i "$(hostname --short),"
+  ansible-pull -U https://gitlab.com/searchwing/development/groundstation/antennagroundstation/ansible.git -i "searchwing-gcs-antennabox,"
 EOF
