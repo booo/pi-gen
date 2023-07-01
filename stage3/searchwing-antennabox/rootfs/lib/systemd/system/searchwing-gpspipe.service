@@ -1,0 +1,16 @@
+[Unit]
+Description=SearchWing service for GPSD data storage with gpspipe
+
+After=network.target
+
+[Service]
+Type=simple
+User=searchwing
+ExecStart=/usr/bin/gpspipe -d -W -o /home/searchwing/gpsd_data.json
+WorkingDirectory=/home/searchwing
+Restart=always
+RestartSec=1
+StartLimitInterval=0
+
+[Install]
+WantedBy=multi-user.target

@@ -25,6 +25,7 @@ install -v -o 1000 -g 1000 -m 644 "rootfs/etc/systemd/network/bridge-br0.netdev"
 install -v -o 1000 -g 1000 -m 644 "rootfs/lib/systemd/system/mavlink-router.service"  "${ROOTFS_DIR}/lib/systemd/system/"
 install -v -o 1000 -g 1000 -m 644 "rootfs/lib/systemd/system/searchwing-mavproxy.service"  "${ROOTFS_DIR}/lib/systemd/system/"
 install -v -o 1000 -g 1000 -m 644 "rootfs/lib/systemd/system/searchwing-gps2udp.service"  "${ROOTFS_DIR}/lib/systemd/system/"
+install -v -o 1000 -g 1000 -m 644 "rootfs/lib/systemd/system/searchwing-gpspipe.service"  "${ROOTFS_DIR}/lib/systemd/system/"
 install -v -o 1000 -g 1000 -m 644 "rootfs/lib/systemd/system/searchwing-adsb.service"  "${ROOTFS_DIR}/lib/systemd/system/"
 
 install -v -o 1000 -g 1000 -m 644 "rootfs/etc/udev/rules.d/10-usb-serial.rules"  "${ROOTFS_DIR}/etc/udev/rules.d/"
