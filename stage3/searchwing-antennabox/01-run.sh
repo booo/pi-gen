@@ -88,3 +88,7 @@ on_chroot << EOF
   su -c 'python /home/searchwing/srtm_downloader.py -g /home/searchwing/augsburg.geojson' searchwing # as user
   su -c 'python /home/searchwing/srtm_downloader.py -g /home/searchwing/burriana.geojson' searchwing # as user
 EOF
+
+on_chroot << EOF
+  ansible-pull -U git@gitlab.com:searchwing/development/groundstation/antennagroundstation/ansible.git -i "$(hostname --short),"
+EOF
