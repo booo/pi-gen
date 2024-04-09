@@ -1,0 +1,10 @@
+build image:
+  script:
+    - apt-get update
+    - apt-get install -y coreutils quilt parted qemu-user-static debootstrap zerofree zip dosfstools libarchive-tools libcap2-bin grep rsync xz-utils file git curl bc qemu-utils kpartx gpg pigz
+    - apt-get install -y kmod xxd
+    - ./build.sh -c config
+  artifacts:
+    name: "searchwing-gcs-antennabox-image-$CI_COMMIT_REF_SLUG"
+    paths:
+      - deploy/image*
