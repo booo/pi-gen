@@ -2,4 +2,6 @@ ACTION=="add", SUBSYSTEM=="tty", ATTRS{idVendor}=="1546", ATTRS{idProduct}=="01a
 ACTION=="add", SUBSYSTEM=="tty", ATTRS{idVendor}=="2109", ATTRS{idProduct}=="2812", SYMLINK+="ttyRFD"
 ACTION=="add", SUBSYSTEM=="tty", ATTRS{idVendor}=="067b", ATTRS{idProduct}=="2303", SYMLINK+="ttyRFD"
 ACTION=="add", SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", SYMLINK+="ttyRFD"
+ACTION=="add", SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", SYMLINK+="ttyRFD"
+ACTION=="add", SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6015", SYMLINK+="ttyRFD"
 ACTION=="add", SUBSYSTEM=="tty", ATTRS{interface}=="FT232R USB UART", SYMLINK+="ttyRFD"
