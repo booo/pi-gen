@@ -72,6 +72,7 @@ on_chroot << EOF
   git clone https://github.com/wiedehopf/tar1090
   cp -r tar1090/html/* /srv/http/adsb/
   sudo ln -s /run/readsb /srv/http/adsb/data
+  sudo systemctl disable readsb.service
 EOF
 
 install -v -m 644 "rootfs/etc/default/readsb" "${ROOTFS_DIR}/etc/default/"
