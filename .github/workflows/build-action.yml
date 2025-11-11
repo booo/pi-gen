@@ -1,5 +1,5 @@
 name: 'Ri Searchwing antenna box image build'
-on: [push]
+on: [push, workflow_dispatch]
 jobs:
   searchwing-image-build:
     runs-on: ubuntu-latest
